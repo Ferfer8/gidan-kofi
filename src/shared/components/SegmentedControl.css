@@ -1,0 +1,31 @@
+/* Styles for a row of options where exactly one is selected. */
+
+.segmented {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--color-divider);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+}
+
+.segmented_option {
+  padding: 0.5rem 1.125rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.segmented_option.selected {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.segmented_option:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

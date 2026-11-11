@@ -1,0 +1,64 @@
+/* Styles for the list of special days under the opening hours. */
+
+.special_actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(-1 * var(--space-2));
+}
+
+.special_empty {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.special_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.special_day_row {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1.3fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.special_day_row:last-child {
+  border-bottom: none;
+}
+
+.special_date {
+  font-weight: 600;
+}
+
+.special_closed {
+  color: var(--color-text-muted);
+}
+
+.special_note {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.special_links {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .special_day_row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .special_note {
+    grid-column: 1;
+  }
+
+  .special_links {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+}

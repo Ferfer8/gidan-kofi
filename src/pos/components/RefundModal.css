@@ -1,0 +1,66 @@
+/* Styles for the "Refund order?" pop-up with a required reason. */
+
+.pos_refund_modal {
+  max-width: 28rem;
+}
+
+.pos_refund_modal .modal_footer {
+  justify-content: space-between;
+}
+
+.refund_summary {
+  margin-bottom: var(--space-5);
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.refund_reason_title {
+  margin-bottom: var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.refund_reasons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.refund_reason_pill {
+  padding: 0.65rem 0.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: #fbf6ee;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.refund_reason_pill.selected {
+  background: var(--color-card-hot);
+  border-color: var(--color-accent);
+}
+
+.refund_reason_input {
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: 0.7rem var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.refund_approved {
+  margin-top: var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.refund_message {
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-error);
+}

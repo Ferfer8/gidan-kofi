@@ -1,0 +1,92 @@
+/* Styles for a pop-up showing a voucher's QR code with Download and Print. */
+
+.qr_modal {
+  max-width: 28rem;
+}
+
+.qr_modal .modal_footer {
+  gap: var(--space-3);
+}
+
+.qr_warning {
+  margin-bottom: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-warning-bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-warning);
+}
+
+/* the voucher card: the café, the QR code, the code and what it gives */
+.voucher_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  background: #fff;
+  text-align: center;
+}
+
+.voucher_cafe {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+.voucher_qr {
+  display: block;
+  width: min(100%, 20rem);
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.voucher_qr.placeholder {
+  background: var(--color-divider);
+}
+
+.voucher_code {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+}
+
+.voucher_details {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+/* Printing: only the voucher card is on the paper */
+@media print {
+  @page {
+    margin: 10mm;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .qr_modal .voucher_card,
+  .qr_modal .voucher_card * {
+    visibility: visible;
+  }
+
+  .qr_modal .voucher_card {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 90mm;
+    margin: 0;
+    transform: translateX(-50%);
+    border: 2px dashed #000;
+  }
+
+  .qr_modal .voucher_qr {
+    width: 70mm;
+  }
+}

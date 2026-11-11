@@ -1,0 +1,85 @@
+/* Styles for a small message that appears on the screen. */
+
+.toast {
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  z-index: 120;
+  padding: 0.75rem var(--space-5);
+  border-radius: var(--radius-control);
+  background: var(--color-row-selected);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 24px rgba(43, 29, 20, 0.25);
+}
+
+.toast_error {
+  background: var(--color-error);
+}
+
+/* bottom right corner instead of the middle */
+.toast_corner {
+  right: var(--space-6);
+  left: auto;
+  transform: none;
+}
+
+/* sits above the sticky Save bar on phones */
+@media (max-width: 600px) {
+  .toast {
+    bottom: 5.5rem;
+  }
+
+  .toast_corner {
+    right: var(--space-4);
+  }
+}
+
+/* the green "Import completed" card, top right under the top bar */
+.toast_success {
+  position: fixed;
+  top: 5rem;
+  right: var(--space-6);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 14rem;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-card);
+  background: #c9ebd8;
+  color: var(--color-success);
+  box-shadow: 0 8px 24px rgba(43, 29, 20, 0.15);
+}
+
+.toast_success_icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--color-success);
+  border-radius: 50%;
+}
+
+.toast_success_title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.toast_success_message {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 600px) {
+  .toast_success {
+    top: 4.5rem;
+    right: var(--space-4);
+    left: var(--space-4);
+  }
+}

@@ -1,0 +1,137 @@
+/* Styles for the top bar of the admin panel: search, the live "counters online" pill and the menu button. */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--topbar-height);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.topbar_icon_button {
+  display: flex;
+  padding: var(--space-2);
+  border: none;
+  background: none;
+  color: var(--color-text);
+}
+
+/* Hidden on big screens. This comes after .topbar_icon_button so its display: none wins. */
+.topbar_menu,
+.topbar_logo,
+.topbar_search_toggle {
+  display: none;
+}
+
+.topbar_search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  max-width: 26rem;
+  padding: 0.625rem var(--space-4);
+  background: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  color: var(--color-text-muted);
+}
+
+.topbar_search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.8125rem;
+  color: var(--color-text);
+}
+
+.topbar_search input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.topbar_right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
+}
+
+.topbar_branch {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .topbar_menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar_logo {
+    display: block;
+    height: 2rem;
+    border-radius: 8px;
+  }
+
+  .topbar_search_toggle {
+    display: flex;
+  }
+
+  .topbar_branch {
+    display: none;
+  }
+
+  /* Search sits on its own row when opened */
+  .topbar_search {
+    display: none;
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .topbar_search_open {
+    display: flex;
+  }
+}
+
+/* which POS counters are online: green when at least one is, grey when none is */
+.counter_pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.counter_pill_dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-success);
+}
+
+.counter_pill.offline {
+  color: var(--color-text-secondary);
+  background: var(--color-divider);
+}
+
+.counter_pill.offline .counter_pill_dot {
+  background: var(--color-text-muted);
+}

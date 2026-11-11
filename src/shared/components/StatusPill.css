@@ -1,0 +1,42 @@
+/* Styles for a small coloured status label. */
+
+.status_pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status_pill_success {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.status_pill_warning {
+  color: var(--color-warning);
+  background: var(--color-warning-bg);
+}
+
+.status_pill_error {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.status_pill_neutral {
+  color: var(--color-text-secondary);
+  background: #e4d6c2;
+}
+
+/* Manager role: a slightly darker tan than the neutral beige */
+.status_pill_tan {
+  color: #5a3a28;
+  background: #d9bfa6;
+}
+
+.status_pill_muted {
+  color: var(--color-text-secondary);
+  background: var(--color-divider);
+}

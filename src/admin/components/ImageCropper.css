@@ -1,0 +1,81 @@
+/* Styles for a pop-up to drag and zoom a photo into the 16:9 menu card shape. */
+
+.modal.modal_crop {
+  max-width: 58rem;
+}
+
+.image_cropper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.crop_editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* react-easy-crop fills this box, so it needs a position and a height */
+.crop_area {
+  position: relative;
+  height: 22rem;
+  border-radius: var(--radius-control);
+  background: var(--color-row-selected);
+  overflow: hidden;
+}
+
+.crop_controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.crop_zoom {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.crop_zoom input {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--color-accent);
+}
+
+.crop_zoom_value {
+  min-width: 2.5rem;
+  text-align: right;
+}
+
+.crop_preview_column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* the preview is only to look at */
+.crop_preview {
+  pointer-events: none;
+  max-width: 18rem;
+}
+
+.crop_preview_media {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .image_cropper {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .crop_area {
+    height: 17rem;
+  }
+}

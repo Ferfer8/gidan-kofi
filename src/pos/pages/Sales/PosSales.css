@@ -1,0 +1,289 @@
+/* Styles for the POS Sales screen: today's orders, reprint and refund. */
+
+.pos_sales_status {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+/* the header stays put; the orders and the details scroll inside their cards */
+.pos_sales_page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--space-6);
+}
+
+.pos_sales_title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pos_sales_date {
+  margin-top: var(--space-1);
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+}
+
+.pos_sales_main {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: var(--space-5);
+  min-height: 0;
+}
+
+/* ---- Today's orders ---- */
+.pos_orders_card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.pos_orders_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-5);
+}
+
+.pos_orders_title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.pos_orders_head .search_input {
+  width: 15rem;
+}
+
+.pos_orders_scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.pos_orders_empty {
+  padding: var(--space-8) var(--space-5);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.pos_orders_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pos_orders_table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.75rem var(--space-3);
+  background: var(--color-surface);
+  box-shadow: inset 0 1px 0 var(--color-divider), inset 0 -1px 0 var(--color-divider);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.pos_orders_table td {
+  padding: 1rem var(--space-3);
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text-secondary);
+}
+
+.pos_orders_table th:first-child,
+.pos_orders_table td:first-child {
+  padding-left: var(--space-5);
+}
+
+.pos_orders_table th:last-child,
+.pos_orders_table td:last-child {
+  padding-right: var(--space-5);
+}
+
+.pos_orders_table .right {
+  text-align: right;
+}
+
+.pos_order_row {
+  cursor: pointer;
+}
+
+.pos_order_row:hover:not(.selected) {
+  background: rgba(145, 79, 43, 0.05);
+}
+
+.pos_order_row:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.pos_order_row.selected {
+  background: var(--color-accent-light);
+}
+
+.pos_order_number {
+  margin-right: var(--space-2);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.pos_order_count {
+  font-size: 0.8125rem;
+}
+
+.pos_order_total {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ---- Order details ---- */
+.pos_order_details {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.pos_details_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.pos_details_title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* only the items scroll; the totals and the buttons stay in view */
+.pos_details_scroll {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 0;
+  padding: var(--space-4) var(--space-5);
+  overflow-y: auto;
+}
+
+.pos_details_row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.pos_details_info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.pos_detail_items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.pos_detail_item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-weight: 600;
+}
+
+.pos_detail_options {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.pos_details_sums {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px dashed var(--color-border);
+}
+
+.pos_details_discount {
+  color: var(--color-accent);
+}
+
+.pos_details_total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pos_details_total strong {
+  font-size: 1.5rem;
+}
+
+.pos_details_paid {
+  margin-top: var(--space-1);
+}
+
+.pos_details_foot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-divider);
+}
+
+.pos_details_button {
+  flex: 1;
+}
+
+.pos_refund_button {
+  gap: var(--space-2);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.pos_details_refunded {
+  flex: 1;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+@media (max-width: 1000px) {
+  .pos_sales_page {
+    padding: var(--space-4);
+  }
+
+  .pos_sales_main {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(16rem, 1fr) minmax(16rem, 1fr);
+  }
+}

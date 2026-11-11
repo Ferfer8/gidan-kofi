@@ -1,0 +1,65 @@
+/* Styles for the start page where you choose the POS or the admin panel. */
+
+.landing_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-page);
+}
+
+.landing_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 28rem;
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+
+.landing_logo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+
+.landing_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5); /* same crop as the logo in the admin sidebar */
+}
+
+.landing_title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.landing_tagline {
+  color: var(--color-text-secondary);
+}
+
+.landing_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-5);
+}
+
+/* two large buttons */
+.landing_button {
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.0625rem;
+}

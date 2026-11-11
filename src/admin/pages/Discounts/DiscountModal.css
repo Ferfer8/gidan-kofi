@@ -1,0 +1,51 @@
+/* Styles for the Add / Edit voucher form. */
+
+.used_note {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.code_row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.code_row .form_input {
+  text-transform: uppercase;
+}
+
+.category_checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-2);
+}
+
+.check_option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+
+.check_option input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-accent);
+}
+
+.discount_preview {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-accent-light);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .discount_modal .segmented {
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,71 @@
+/* Styles for the slim demo bar at the top of the admin panel and the POS. */
+
+:root {
+  --demo_banner_height: 2.25rem;
+}
+
+.demo_banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: var(--demo_banner_height);
+  padding: 0 var(--space-4);
+  background: var(--color-demo-bg);
+  color: var(--color-demo-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.demo_banner_text {
+  margin: 0;
+}
+
+.demo_banner_close {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.demo_banner_close:hover {
+  background: rgba(107, 79, 0, 0.12);
+}
+
+/* The POS: over the top of the screen, and the POS screens (which are exactly one screen tall) make room for it */
+.demo_banner_fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+}
+
+html.demo_banner_on .pos_layout {
+  box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh;
+  padding-top: var(--demo_banner_height);
+}
+
+html.demo_banner_on .pin_screen {
+  box-sizing: border-box;
+  padding-top: var(--demo_banner_height);
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --demo_banner_height: 3.25rem;
+  }
+
+  .demo_banner {
+    font-size: 0.75rem;
+  }
+}

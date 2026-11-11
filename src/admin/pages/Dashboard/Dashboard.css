@@ -1,0 +1,452 @@
+/* Styles for the admin home page: today's sales, payments, top items, who is on shift and cash drawers. */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.dashboard_title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.dashboard_subtitle {
+  margin-top: var(--space-1);
+  color: var(--color-text-secondary);
+}
+
+.dashboard_link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+/* Layout */
+.dashboard_stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.dashboard_row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.dashboard_row_chart {
+  grid-template-columns: 2fr 1fr;
+}
+
+.dashboard_row_three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Sales by hour */
+.sales_chart_summary {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.sales_chart_bars {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem; /* room for the value label above the tallest bar */
+}
+
+.sales_chart_column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sales_chart_track {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 14rem;
+}
+
+.sales_chart_bar {
+  position: relative;
+  width: 100%;
+  background: var(--color-chart-bar);
+  border-radius: 4px 4px 0 0;
+}
+
+.sales_chart_bar_busiest {
+  background: var(--color-chart-bar-top);
+}
+
+.sales_chart_bar_live {
+  background: var(--color-chart-bar-live);
+  border: 1px dashed var(--color-chart-bar);
+  border-bottom: none;
+}
+
+/* Value label sits just above the bar */
+.sales_chart_value {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  padding-bottom: 0.25rem;
+  transform: translateX(-50%);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sales_chart_label {
+  text-align: center;
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Top items */
+.top_items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.top_items_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.top_items_name {
+  font-weight: 600;
+}
+
+.top_items_sold {
+  color: var(--color-text-secondary);
+}
+
+.top_items_track {
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-divider);
+  overflow: hidden;
+}
+
+.top_items_fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+/* Needs attention */
+.attention_list_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.attention_list_item:first-child {
+  padding-top: 0;
+}
+
+.attention_list_item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Payments */
+.payments_bar {
+  display: flex;
+  height: 0.625rem;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.payments_segment_card {
+  background: var(--color-accent);
+}
+
+.payments_segment_cash {
+  background: var(--color-cash);
+}
+
+.payments_methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.payments_method,
+.payments_adjustment {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.payments_method_name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.payments_dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+}
+
+.payments_dot_card {
+  background: var(--color-accent);
+}
+
+.payments_dot_cash {
+  background: var(--color-cash);
+}
+
+.payments_adjustments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.payments_discount {
+  font-weight: 600;
+  color: var(--color-warning-text);
+}
+
+.payments_refund {
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+/* On shift */
+.on_shift {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.on_shift_person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.on_shift_name {
+  font-weight: 600;
+}
+
+.on_shift_role {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.on_shift_text {
+  flex: 1;
+  min-width: 0;
+}
+
+.on_shift_orders {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+.on_shift_empty {
+  color: var(--color-text-secondary);
+}
+
+/* Cash drawers: each counter's latest count; the table scrolls sideways on small screens */
+.cash_drawers_scroll {
+  overflow-x: auto;
+}
+
+.cash_table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+}
+
+.cash_table th {
+  padding: 0.6rem var(--space-3);
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+.cash_table td {
+  padding: 0.8rem var(--space-3);
+  border-bottom: 1px solid var(--color-divider);
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+.cash_table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cash_table th:first-child,
+.cash_table td:first-child {
+  padding-left: 0;
+}
+
+.cash_table .right {
+  text-align: right;
+}
+
+.drawer_counter {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* "Sat 7 Nov" under the counter name when its latest closing is from an earlier day */
+.drawer_date_note {
+  display: block;
+  font-size: 0.75rem;
+}
+
+.drawer_row.clickable {
+  cursor: pointer;
+}
+
+.drawer_row.clickable:hover {
+  background: rgba(145, 79, 43, 0.05);
+}
+
+.drawer_row.clickable:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+/* the difference: green when it matches, amber when a little out, red when more than AED 20 out */
+.cash_diff {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.cash_diff.matches {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.cash_diff.over,
+.cash_diff.short {
+  color: var(--color-warning);
+  background: var(--color-warning-bg);
+}
+
+.cash_diff.far {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.cash_diff.not_closed {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-divider);
+}
+
+/* the breakdown of one closing */
+.drawer_modal {
+  max-width: 24rem;
+}
+
+.drawer_breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.drawer_breakdown_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+.drawer_breakdown_row dd {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.drawer_reopened {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-warning-bg);
+  font-size: 0.875rem;
+  color: var(--color-warning);
+}
+
+/* Laptop: the three bottom cards would get tight, so the third wraps below */
+@media (max-width: 1200px) {
+  .dashboard_row_three {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard_row_three > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .dashboard_stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard_row_chart,
+  .dashboard_row_three {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .dashboard_title {
+    font-size: 1.375rem;
+  }
+
+  .dashboard_stats {
+    grid-template-columns: 1fr;
+  }
+
+  .sales_chart_bars {
+    gap: 0.25rem;
+  }
+
+  .sales_chart_label {
+    font-size: 0.625rem;
+  }
+}
+
+.payments_segment_split {
+  background: var(--color-split);
+}
+
+.payments_dot_split {
+  background: var(--color-split);
+}

@@ -1,0 +1,58 @@
+/* Styles for the standard button (or a link that looks like one). */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.625rem 1.125rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.button_primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.button_primary:hover {
+  background: #7d4223;
+}
+
+.button_secondary {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.button_secondary:hover {
+  background: var(--color-page);
+}
+
+.button_ghost {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.button_danger {
+  background: var(--color-surface);
+  border-color: #f0b9b4;
+  color: var(--color-error);
+}
+
+.button_danger:hover {
+  background: var(--color-error-bg);
+}
+
+.button_small {
+  padding: 0.4rem 1rem;
+  font-size: 0.8125rem;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

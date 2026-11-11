@@ -1,0 +1,79 @@
+/* Styles for the standard pop-up window (closes on X, backdrop or Escape). */
+
+.modal_backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: rgba(43, 29, 20, 0.45);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 32rem;
+  max-height: 90vh;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+}
+
+.modal_header,
+.modal_footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+}
+
+.modal_header {
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.modal_title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.modal_close {
+  display: flex;
+  padding: var(--space-1);
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+}
+
+.modal_body {
+  flex: 1;
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+.modal_footer {
+  justify-content: flex-end;
+  border-top: 1px solid var(--color-divider);
+}
+
+@media (max-width: 600px) {
+  .modal_backdrop {
+    padding: var(--space-2);
+  }
+
+  .modal {
+    max-width: none;
+    max-height: 96vh;
+  }
+}
+
+/* Pushes a button (e.g. Delete) to the left of the footer */
+.modal_footer_left {
+  margin-right: auto;
+}
+
+.modal.modal_wide {
+  max-width: 40rem;
+}

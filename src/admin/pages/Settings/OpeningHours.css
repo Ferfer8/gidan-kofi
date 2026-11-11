@@ -1,0 +1,100 @@
+/* Styles for the opening hours for each day. */
+
+.hours_stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.copy_hours {
+  align-self: flex-start;
+}
+
+.link_button:disabled {
+  opacity: 0.5;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+.hours_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.hours_row {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.hours_row:last-child {
+  border-bottom: none;
+}
+
+.hours_day {
+  font-weight: 600;
+}
+
+.hours_times {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.hours_times .form_input {
+  max-width: 9rem;
+}
+
+/* A closed day shows plain "Closed" text instead of the time inputs */
+.hours_closed {
+  color: var(--color-text-muted);
+}
+
+.hours_row.closed .hours_day {
+  color: var(--color-text-secondary);
+}
+
+/* Text link in muted brown (not a button) */
+.hours_link {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.hours_link:hover {
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+.hours_error {
+  grid-column: 1 / -1;
+  margin-top: calc(-1 * var(--space-2));
+}
+
+.auto_close,
+.business_day {
+  max-width: 16rem;
+}
+
+.business_day {
+  margin-top: var(--space-5);
+}
+
+@media (max-width: 600px) {
+  .hours_row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .hours_times,
+  .hours_closed {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

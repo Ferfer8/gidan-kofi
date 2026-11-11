@@ -1,0 +1,67 @@
+/* Styles for the colours, spacing and other design variables used everywhere. */
+
+:root {
+  /* Colours (Espresso & Cream) */
+  --color-demo-bg: #fff3c4; /* the demo banner and the demo notes */
+  --color-demo-text: #6b4f00;
+  --color-page: #faf6f0;
+  --color-surface: #ffffff;
+  --color-border: #dccdb8;
+  --color-divider: #f1e9dd;
+  --color-input-bg: #faf6f0;
+  --color-text: #2b1d14;
+  --color-text-secondary: #6e5a4b;
+  --color-text-muted: #9c8775;
+  --color-accent: #914f2b;
+  --color-accent-light: #f5e7db;
+  --color-chart-bar: #d9b894;
+  --color-chart-bar-live: #ecd9c4;
+  --color-chart-bar-top: #914f2b;
+  --color-cash: #dcc17f;
+  --color-split: #b9a58f;
+  --color-row-selected: #2b1d14;
+  --color-drop-border: #c9a88a;
+  --color-drop-bg: #fcfaf7;
+  --color-icon-circle: #f0d9c4;
+  --color-scroll-thumb: #4a3122;
+  --color-scroll-track: #f1e9dd;
+
+  /* Order table row colour per counter - add --counter_3_bg etc. for more counters */
+  --counter_1_bg: #ffffff;
+  --counter_2_bg: #f6f0e8;
+
+  /* The POS: its sidebar, the item card colours (so staff can spot a type of item at a glance) and
+     the "X left" colour */
+  --color-pos-sidebar: #2b1d14;
+  --color-card-hot: #efd9c7;
+  --color-card-cold: #d9e6d3;
+  --color-card-pastry: #f6e3b4;
+  --color-card-grab: #dde6ee;
+  --color-low-stock: #b5541c;
+
+  --color-success: #087f50;
+  --color-success-bg: #e7f4ed;
+  --color-warning: #6b4f00;
+  --color-warning-bg: #fff3c4;
+  --color-warning-text: #8a4100;
+  --color-error: #c92318;
+  --color-error-bg: #fce7e5;
+
+  /* Radius */
+  --radius-card: 16px;
+  --radius-control: 12px;
+  --radius-pill: 999px;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Layout */
+  --sidebar-width: 15.5rem;
+  --topbar-height: 4rem;
+}

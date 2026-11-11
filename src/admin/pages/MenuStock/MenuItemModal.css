@@ -1,0 +1,105 @@
+/* Styles for the Add / Edit menu item window: details, options, tracking, stock link, image and customisations. */
+
+.size_rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.size_row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7rem auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.size_add {
+  align-self: flex-start;
+}
+
+/* the message under a row (a missing name, a repeated name, no price) */
+.size_row_error {
+  grid-column: 1 / -1;
+  margin-top: calc(-1 * var(--space-1));
+}
+
+/* "Split into 2 options" */
+.split_note {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+@media (max-width: 600px) {
+  .size_row {
+    grid-template-columns: minmax(0, 1fr) 5.5rem auto;
+  }
+}
+
+/* Track stock: each option row gets its stock numbers on a second line */
+.size_row_stock {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+}
+
+.stock_field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.tracking_section {
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-divider);
+}
+
+/* the 3-way switch fills the width, each part the same size */
+.tracking_switch .segmented {
+  display: flex;
+  width: 100%;
+}
+
+.tracking_switch .segmented_option {
+  flex: 1;
+}
+
+/* the stock item select takes the whole line; the numbers for a new item go under it */
+.stock_item_select {
+  grid-column: 1 / -1;
+}
+
+.baked_from_select {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* "Karak Chai · 1 of 2" at the top of the form while adding images after an import */
+.image_queue_progress {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Served: Hot | Cold | Hot & cold, with the extra for cold next to it */
+.served_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.served_row .form_field {
+  width: 11rem;
+}
+
+.served_hint {
+  margin-top: calc(-1 * var(--space-2));
+}

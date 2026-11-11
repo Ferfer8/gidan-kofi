@@ -1,0 +1,376 @@
+/* Styles for the Menu & Stock page that holds the Menu, Stock and Customisations views. */
+
+.menu_page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.menu_header {
+  position: relative;
+  z-index: 10; /* the "..." menu opens over the list */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Menu view: exactly one screen tall (see AdminLayout). The header and the filter row stay put
+   and only the list below them scrolls. */
+.menu_page.menu_locked {
+  flex: 1;
+  gap: var(--space-4);
+  min-height: 0;
+}
+
+.menu_locked > .menu_header,
+.menu_locked > .toolbar {
+  flex-shrink: 0;
+}
+
+/* The scrolling part */
+.menu_scroll_area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* The menu cards: the list runs to the screen edges (so its scrollbar sits there) and keeps
+   space at the bottom. */
+.menu_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-inline: calc(-1 * var(--page_x));
+  padding: 0 var(--page_x) var(--space-8);
+}
+
+/* Search + filter pills. The pills take the rest of the row and scroll sideways if they don't fit. */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.toolbar .search_input {
+  flex-shrink: 0;
+  width: 17rem;
+}
+
+.toolbar .filter_pills {
+  flex: 1;
+}
+
+/* Sections */
+.menu_section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.menu_section_title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.menu_section_dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+}
+
+.menu_section_count {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.menu_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  align-items: stretch;
+  gap: var(--space-5);
+}
+
+.empty_message {
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* Stock table: header stays put while the rows scroll inside the card */
+.stock_card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  max-height: max(22rem, calc(100vh - 18.5rem));
+}
+
+.stock_scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.stock_table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+}
+
+.stock_table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1rem var(--space-5);
+  background: var(--color-surface);
+  box-shadow: inset 0 -1px 0 var(--color-divider);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.stock_table td {
+  padding: 0.75rem var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: center;
+}
+
+.stock_table th:first-child,
+.stock_table td:first-child {
+  text-align: left;
+}
+
+.stock_table th:last-child,
+.stock_table td:last-child {
+  text-align: right;
+}
+
+.stock_row {
+  cursor: pointer;
+}
+
+.stock_row:hover {
+  background: var(--color-page);
+}
+
+.stock_row:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.stock_name {
+  font-weight: 600;
+}
+
+.stock_pack {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.stock_quantity {
+  font-weight: 600;
+}
+
+/* Add / edit modals */
+.checkbox_group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.checkbox_group .form_label {
+  width: 100%;
+  margin-bottom: var(--space-1);
+  padding: 0;
+}
+
+.checkbox_option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+
+.checkbox_option input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-accent);
+}
+
+/* Stock modal */
+.status_preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 600px) {
+  .menu_grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* search on its own row, pills below it on a full-width scrolling row */
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbar .search_input {
+    width: 100%;
+  }
+
+  .toolbar .filter_pills {
+    flex-basis: 100%;
+  }
+}
+
+.menu_error {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-error-bg);
+  font-size: 0.875rem;
+  color: var(--color-error);
+}
+
+/* Phones: keep the fixed area (header + search/filters) small so most of the screen is the list */
+@media (max-width: 600px) {
+  .admin_layout.locked .admin_layout_content {
+    padding-top: var(--space-3);
+  }
+
+  .menu_locked {
+    gap: var(--space-3);
+  }
+
+  .menu_locked .menu_header .page_header {
+    gap: var(--space-2);
+  }
+
+  /* the switch, the add button and the "..." button fit on one row */
+  .menu_locked .menu_header .page_actions {
+    flex-wrap: nowrap;
+    gap: var(--space-2);
+    width: 100%;
+  }
+
+  .menu_locked .menu_header .segmented_option {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .menu_locked .menu_header .button {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .menu_locked .menu_header .dropdown_trigger {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .menu_locked .toolbar {
+    gap: var(--space-2);
+  }
+
+  .menu_locked .toolbar .search_input {
+    padding: 0.35rem var(--space-4);
+  }
+}
+
+/* Stock modal: "bought as" is a pack type and an amount */
+.pack_fields {
+  align-items: start;
+}
+
+.pack_preview {
+  margin-top: calc(-1 * var(--space-2));
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.pack_preview strong {
+  color: var(--color-text);
+}
+
+/* pack type, amount and unit side by side */
+.pack_fields {
+  grid-template-columns: 1.1fr 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .pack_fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* the "No image (n)" filter stands out from the other pills */
+.filter_pill.no_image_pill {
+  background: #fff3c4;
+  border-color: #e8c766;
+  color: #6b4f00;
+}
+
+.filter_pill.no_image_pill:hover {
+  background: #fbeaa6;
+}
+
+.filter_pill.no_image_pill.active {
+  background: #e8c766;
+  border-color: #e8c766;
+  color: var(--color-text);
+}
+
+/* the new items listed in the "Add images for your new items" pop-up */
+.image_queue_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-height: 14rem;
+  margin: var(--space-4) 0 0;
+  padding: var(--space-3) var(--space-5);
+  overflow-y: auto;
+  list-style: disc;
+  background: var(--color-input-bg);
+  border-radius: var(--radius-control);
+  font-weight: 600;
+}
+
+/* the second row of pills (All drinks / Hot / Cold), smaller than the category pills */
+.drink_filter_row {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.drink_filter_pill {
+  padding: 0.25rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.drink_filter_pill:hover {
+  background: var(--color-divider);
+}
+
+.drink_filter_pill.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}

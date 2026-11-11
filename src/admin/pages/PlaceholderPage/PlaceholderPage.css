@@ -1,0 +1,11 @@
+/* Styles for a "not built yet" page for admin routes without a screen. */
+
+.placeholder_page_title {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.placeholder_page_text {
+  margin-top: var(--space-2);
+  color: var(--color-text-secondary);
+}

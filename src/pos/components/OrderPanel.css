@@ -1,0 +1,312 @@
+/* Styles for the order on the right of the checkout: lines, bag, discount, totals and Charge. */
+
+.pos_order_panel {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 22rem;
+  min-height: 0;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-divider);
+}
+
+.order_panel_head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5) var(--space-3);
+}
+
+.order_panel_title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.order_panel_count {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* only on small screens, where the order is a sheet that slides up */
+.order_panel_close {
+  display: none;
+  padding: var(--space-1);
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+}
+
+.order_type {
+  padding: 0 var(--space-5) var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.order_type .segmented {
+  display: flex;
+}
+
+.order_type .segmented_option {
+  flex: 1;
+  padding-block: 0.625rem;
+}
+
+.order_lines {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: var(--space-3) var(--space-5);
+  overflow-y: auto;
+}
+
+/* a line: name, options and pencil on the left; - qty + and the price on the right */
+.pos_order_line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.order_line_main {
+  flex: 1;
+  min-width: 0;
+}
+
+.order_line_name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.order_line_options {
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.line_edit {
+  display: block;
+  margin-top: var(--space-1);
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-accent);
+}
+
+.order_line_limit {
+  margin-top: var(--space-1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-low-stock);
+}
+
+.line_steps {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.step_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.625rem;
+  height: 1.625rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.step_button:disabled {
+  opacity: 0.4;
+}
+
+.line_qty {
+  min-width: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.line_total {
+  min-width: 3.25rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* the bag: the prompt and, once added, its line */
+.bag_box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  padding: var(--space-3);
+  border: 1px dashed var(--color-accent);
+  border-radius: var(--radius-control);
+  background: #fbf3ea;
+  color: var(--color-accent);
+}
+
+.bag_box_text {
+  flex: 1;
+  min-width: 0;
+}
+
+.bag_box_title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.bag_box_note {
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+}
+
+.bag_add_button {
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  background: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.bag_dismiss {
+  display: flex;
+  padding: var(--space-1);
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+}
+
+/* subtotal, VAT, discount, total and the Charge button */
+.order_totals {
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  background: var(--color-accent-light);
+}
+
+.totals_rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.totals_rows > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totals_rows dt,
+.totals_rows dd {
+  margin: 0;
+}
+
+.add_discount {
+  padding: 0;
+  border: none;
+  background: none;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.totals_total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px dotted var(--color-border);
+  font-weight: 700;
+}
+
+.totals_total strong {
+  font-size: 1.5rem;
+}
+
+.charge_button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* an empty order: muted, and it can't be pressed */
+.charge_button:disabled {
+  background: #b9876c;
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Small screens: the order is a sheet that slides up from the bottom (opened from the bar) */
+@media (max-width: 900px) {
+  .pos_order_panel {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 60;
+    width: auto;
+    max-height: 85vh;
+    border-top-left-radius: var(--radius-card);
+    border-top-right-radius: var(--radius-card);
+    border-left: none;
+    box-shadow: 0 -8px 32px rgba(43, 29, 20, 0.25);
+    transform: translateY(105%);
+    transition: transform 0.2s;
+    visibility: hidden;
+  }
+
+  .pos_order_panel.open {
+    transform: none;
+    visibility: visible;
+  }
+
+  .order_panel_close {
+    display: block;
+  }
+
+  .order_lines {
+    min-height: 8rem;
+  }
+}
+
+/* an applied discount: its own line under the subtotal, with a small x */
+.order_discount_row {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.order_discount_row dd {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.remove_discount {
+  display: flex;
+  padding: 2px;
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.add_discount:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

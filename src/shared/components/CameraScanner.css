@@ -1,0 +1,80 @@
+/* Styles for a camera view that reads one QR code or barcode. */
+
+.camera_scanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* a square view of the camera with a square frame over it */
+.scan_view {
+  position: relative;
+  width: min(100%, 18rem);
+  aspect-ratio: 1;
+  border-radius: var(--radius-control);
+  background: #1b130d;
+  overflow: hidden;
+}
+
+.scan_video {
+  position: absolute;
+  inset: 0;
+}
+
+.scan_video video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.scan_frame {
+  position: absolute;
+  inset: 12%;
+  pointer-events: none;
+}
+
+.scan_corner {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25rem solid #fff;
+}
+
+.scan_corner.top_left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 0.5rem;
+}
+
+.scan_corner.top_right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 0.5rem;
+}
+
+.scan_corner.bottom_left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.scan_corner.bottom_right {
+  right: 0;
+  bottom: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.scan_hint {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}

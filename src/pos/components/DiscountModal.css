@@ -1,0 +1,326 @@
+/* Styles for the Add discount pop-up: scan or type a voucher, or a manager discount. */
+
+.pos_discount_modal {
+  max-width: 30rem;
+}
+
+.pos_discount_modal .modal_header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pos_discount_modal .modal_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pos_discount_modal .modal_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  overflow-y: auto;
+}
+
+.discount_context {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* Scan code | Enter code */
+.discount_options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.discount_option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-4) var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.discount_option.selected {
+  background: #f8ece0;
+  border-color: var(--color-accent);
+}
+
+.discount_option_title {
+  margin-top: var(--space-1);
+  font-weight: 700;
+}
+
+.discount_option_note {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.pos_code_row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.code_input,
+.reason_input,
+.amount_field {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-input-bg);
+  color: var(--color-text);
+}
+
+.code_input {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.code_check {
+  padding: 0 1.25rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.code_check:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scan_ready {
+  padding: var(--space-3);
+  border: 1px dashed var(--color-accent);
+  border-radius: var(--radius-control);
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.scan_status {
+  margin-bottom: var(--space-2);
+}
+
+.scan_again {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* the field the scanner types into: ready, but not shown */
+.scan_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+}
+
+.discount_error {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+.discount_note {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* "WELCOME10 applied", "Approved by manager" */
+.discount_banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.65rem var(--space-3);
+  border: 1px solid #b9dfc9;
+  border-radius: var(--radius-control);
+  background: var(--color-success-bg);
+  font-size: 0.8125rem;
+  color: var(--color-success);
+}
+
+.discount_banner span {
+  flex: 1;
+}
+
+.discount_banner_link {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--color-success);
+  cursor: pointer;
+}
+
+.manager_link {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+/* manager discount */
+.manager_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.discount_section_title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.reason_title {
+  font-size: 0.8125rem;
+}
+
+.preset_pills,
+.reason_pills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.preset_pill,
+.reason_pill {
+  padding: 0.7rem 0.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: #fbf6ee;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.reason_pill {
+  padding-block: 0.55rem;
+  font-size: 0.75rem;
+}
+
+.preset_pill.selected,
+.reason_pill.selected {
+  background: var(--color-card-hot);
+  border-color: var(--color-accent);
+}
+
+.preset_pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.amount_field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.amount_prefix {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.amount_input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.reason_input {
+  width: 100%;
+}
+
+/* subtotal, discount, VAT, new total */
+.discount_summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-control);
+  background: #fbf6ee;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.discount_summary > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount_summary dt,
+.discount_summary dd {
+  margin: 0;
+}
+
+.discount_summary_discount {
+  color: var(--color-accent);
+}
+
+.discount_summary_discount dd {
+  font-weight: 700;
+}
+
+.discount_summary_total {
+  margin-top: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-divider);
+  align-items: baseline;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.discount_summary_total dd {
+  font-size: 1.375rem;
+}
+
+.discount_apply {
+  padding: 0.9rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* nothing valid to apply yet */
+.discount_apply:disabled {
+  background: #e6d6c3;
+  color: #b49a82;
+  cursor: not-allowed;
+}

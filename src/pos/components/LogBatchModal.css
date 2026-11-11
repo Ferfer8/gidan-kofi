@@ -1,0 +1,99 @@
+/* Styles for the Kitchen "Log batch" pop-up: how many were made. */
+
+.log_batch_modal {
+  max-width: 26rem;
+}
+
+.log_batch_modal .modal_footer {
+  justify-content: space-between;
+}
+
+.log_batch_question {
+  margin-bottom: var(--space-4);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.log_batch_stepper {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+.log_batch_step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: #fbf6ee;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.log_batch_step:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.log_batch_input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.8rem var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.log_batch_input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.log_batch_quick {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.log_batch_quick_button {
+  padding: 0.8rem 0.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: #fbf6ee;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.log_batch_quick_button:active {
+  background: var(--color-card-hot);
+}
+
+.log_batch_stock {
+  margin-top: var(--space-5);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.log_batch_warning {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-warning-bg);
+  font-size: 0.8125rem;
+  color: var(--color-warning);
+}
+
+.log_batch_message {
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-error);
+}

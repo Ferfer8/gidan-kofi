@@ -1,0 +1,52 @@
+/* Styles for the cover shown on the Orders screen once the day is closed, with Reopen. */
+
+/* over the menu and the order panel (the sidebar stays, so Sales and Settings can still be opened) */
+.day_closed_overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--color-page);
+  text-align: center;
+}
+
+.day_closed_lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.day_closed_title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.day_closed_text {
+  max-width: 28rem;
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+}
+
+.day_closed_button {
+  min-width: 13rem;
+  margin-top: var(--space-3);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}

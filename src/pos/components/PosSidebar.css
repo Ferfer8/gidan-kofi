@@ -1,0 +1,117 @@
+/* Styles for the dark POS sidebar: navigation, who is signed in and Switch staff. */
+
+.pos_sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--space-4);
+  width: 5.5rem;
+  padding: var(--space-5) var(--space-2);
+  background: var(--color-pos-sidebar);
+}
+
+.pos_sidebar_logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+
+.pos_sidebar_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
+}
+
+.pos_sidebar_links {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.pos_sidebar_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-3) var(--space-1);
+  border-radius: var(--radius-control);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #e8d8c8;
+}
+
+.pos_sidebar_link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pos_sidebar_link.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* who is signed in */
+.pos_staff_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.pos_staff_name {
+  max-width: 100%;
+  margin-top: var(--space-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pos_staff_since {
+  font-size: 0.625rem;
+  line-height: 1.3;
+  color: #c9b8a6;
+}
+
+.pos_switch_staff {
+  margin-top: var(--space-2);
+  padding: 0.35rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-control);
+  background: none;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #e8d8c8;
+  cursor: pointer;
+}
+
+.pos_switch_staff:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Phones and small tablets: the sidebar becomes a thin strip */
+@media (max-width: 900px) {
+  .pos_sidebar {
+    width: 4.25rem;
+    padding-inline: var(--space-1);
+  }
+
+  .pos_sidebar_logo {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}

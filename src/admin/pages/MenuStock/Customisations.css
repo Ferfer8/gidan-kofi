@@ -1,0 +1,323 @@
+/* Styles for the Customisations view and its pop-up. */
+
+/* ---- the Customisations view ---- */
+.customisations_empty {
+  padding: var(--space-8) 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.customisations_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+
+.customisation_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.customisation_head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.customisation_name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.customisation_meta {
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.customisation_applies {
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.customisation_actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.arrow_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.arrow_button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.arrow_button.arrow_down svg {
+  transform: rotate(180deg);
+}
+
+.choice_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.choice_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  background: #fbf6ee;
+  font-size: 0.875rem;
+}
+
+.choice_item.unavailable .choice_name {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.choice_price {
+  color: var(--color-text-secondary);
+}
+
+.choice_tags {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.choice_tag {
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.choice_tag.default {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.choice_tag.off {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.counter_summary {
+  padding: var(--space-3);
+  border-radius: var(--radius-control);
+  background: #fbf6ee;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* ---- the Add / Edit group window ---- */
+.customisation_modal {
+  max-width: 44rem;
+}
+
+.customisation_modal .modal_footer {
+  gap: var(--space-3);
+}
+
+.customisation_delete {
+  border: none;
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.choice_rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  list-style: none;
+}
+
+.choice_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2);
+  border-radius: var(--radius-control);
+  background: #fbf6ee;
+}
+
+.choice_name_input {
+  flex: 1 1 8rem;
+  min-width: 0;
+}
+
+.choice_price_field {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.choice_price_field .form_input {
+  width: 5.5rem;
+}
+
+.choice_default {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.choice_available {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.choice_available_text {
+  min-width: 5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.choice_buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.choice_error {
+  flex-basis: 100%;
+}
+
+.counter_fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.counter_field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.counter_field:last-child {
+  grid-column: 1 / -1;
+}
+
+.applies_to_categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.applies_to_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-height: 13rem;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-control);
+  list-style: none;
+  overflow-y: auto;
+}
+
+.applies_to_note {
+  margin-left: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.applies_to_empty {
+  padding: var(--space-2) 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.delete_list {
+  margin: var(--space-3) 0;
+  padding-left: var(--space-5);
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.customisation_note {
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* ---- in the Add / Edit menu item window ---- */
+.item_customisation_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.item_customisation_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+}
+
+.checkbox_option.from_category {
+  color: var(--color-text-secondary);
+}
+
+.item_default_field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.item_default_field .form_input {
+  width: 5rem;
+}
+
+.item_default_error {
+  flex-basis: 100%;
+}
+
+@media (max-width: 700px) {
+  .counter_fields {
+    grid-template-columns: 1fr;
+  }
+}

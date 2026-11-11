@@ -1,0 +1,164 @@
+/* Styles for the admin navigation menu (a drawer on small screens). */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-divider);
+  overflow-y: auto;
+}
+
+.sidebar_overlay {
+  display: none;
+}
+
+.sidebar_brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+/* Small rounded square. The logo file has a lot of empty space around the wordmark, so crop in on it */
+.sidebar_logo {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+
+.sidebar_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
+}
+
+.sidebar_name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.sidebar_subtitle {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.sidebar_nav {
+  flex: 1;
+}
+
+.sidebar_group {
+  margin-bottom: var(--space-5);
+}
+
+.sidebar_group_title {
+  padding: 0 var(--space-3);
+  margin-bottom: var(--space-2);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sidebar_link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.625rem var(--space-3);
+  margin-bottom: 2px;
+  border-radius: var(--radius-control);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.sidebar_link:hover {
+  background: var(--color-page);
+}
+
+.sidebar_link_active {
+  background: var(--color-accent-light);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.sidebar_user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-2) 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.sidebar_user_info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar_user_name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.sidebar_user_role {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.sidebar_logout {
+  display: flex;
+  padding: var(--space-1);
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-width: 13.5rem;
+  }
+}
+
+/* Drawer mode */
+@media (max-width: 900px) {
+  :root {
+    --sidebar-width: 17rem;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar_open {
+    transform: translateX(0);
+  }
+
+  .sidebar_overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: block;
+    background: rgba(43, 29, 20, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .sidebar_overlay_visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

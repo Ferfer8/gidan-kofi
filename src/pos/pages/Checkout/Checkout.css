@@ -1,0 +1,170 @@
+/* Styles for the POS Orders screen: the item grid, the order, discount, payment and receipt. */
+
+.checkout_status {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout_page {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* the middle: the header and tabs stay put, only the grid scrolls */
+.checkout_main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: var(--space-5) var(--space-6) 0;
+}
+
+.checkout_head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.checkout_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.checkout_subtitle {
+  color: var(--color-text-secondary);
+}
+
+.checkout_tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.checkout_tools .search_input {
+  width: 20rem; /* the search box now has the space the scan button used */
+}
+
+/* All · Drinks · Pastries & sweets · Grab & go: the active one is underlined */
+.category_tabs {
+  display: flex;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+  overflow-x: auto;
+}
+
+.category_tab {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 0 var(--space-1);
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.category_tab.active {
+  border-bottom-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.category_dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+}
+
+.item_grid_scroll {
+  flex: 1;
+  min-height: 0;
+  margin-right: calc(-1 * var(--space-6));
+  padding: 0 var(--space-6) var(--space-6) 0;
+  overflow-y: auto;
+}
+
+.item_grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.item_grid_empty {
+  padding: var(--space-8) 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* the bottom bar that opens the order: only on small screens */
+.order_bar {
+  display: none;
+}
+
+.order_sheet_backdrop {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .checkout_main {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+
+  .checkout_tools .search_input {
+    width: 16rem;
+  }
+
+  .item_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .item_grid_scroll {
+    margin-right: calc(-1 * var(--space-4));
+    padding: 0 var(--space-4) 5.5rem 0;
+  }
+
+  .order_bar {
+    position: fixed;
+    right: var(--space-3);
+    bottom: var(--space-3);
+    left: calc(4.25rem + var(--space-3));
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.95rem var(--space-5);
+    border: none;
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(43, 29, 20, 0.3);
+  }
+
+  .order_sheet_backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    display: block;
+    background: rgba(43, 29, 20, 0.45);
+  }
+}
+
+@media (max-width: 520px) {
+  .item_grid {
+    grid-template-columns: 1fr;
+  }
+}

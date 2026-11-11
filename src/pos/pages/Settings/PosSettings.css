@@ -1,0 +1,205 @@
+/* Styles for the POS Settings screen with its sections. */
+
+.pos_settings_status {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.pos_settings_page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--space-6) var(--space-8);
+}
+
+.pos_settings_title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pos_settings_subtitle {
+  margin-top: var(--space-1);
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+}
+
+.pos_settings_main {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 15.5rem minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: var(--space-6);
+  min-height: 0;
+}
+
+/* ---- the sections on the left ---- */
+.settings_nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 0;
+}
+
+.settings_nav_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.settings_nav_item {
+  padding: 1rem var(--space-5);
+  border: none;
+  border-radius: var(--radius-card);
+  background: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.settings_nav_item:hover:not(.selected) {
+  background: rgba(145, 79, 43, 0.07);
+}
+
+.settings_nav_item.selected {
+  background: var(--color-pos-sidebar);
+  color: #fff;
+}
+
+.settings_nav_note {
+  padding: var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-accent-light);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* ---- the chosen section ---- */
+.settings_card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+  background: var(--color-surface);
+  overflow-y: auto;
+}
+
+.settings_card_head {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.settings_card_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.settings_card_subtitle {
+  margin-top: var(--space-1);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.settings_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.settings_row_title {
+  font-weight: 700;
+}
+
+.settings_row_detail {
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.settings_row_detail.settings_closed_text {
+  font-weight: 700;
+  color: var(--color-success);
+}
+
+.settings_value {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.settings_button {
+  min-width: 6.5rem;
+}
+
+.settings_message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-5) 0;
+  color: var(--color-text-secondary);
+}
+
+/* today so far: orders, cash, card, split */
+.day_summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-control);
+  background: #fbf6ee;
+}
+
+.day_summary_item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.day_summary_item strong {
+  font-size: 1.125rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 900px) {
+  .pos_settings_page {
+    padding: var(--space-4);
+  }
+
+  .pos_settings_main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .settings_nav {
+    gap: var(--space-3);
+  }
+
+  .settings_nav_list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .settings_nav_note {
+    display: none;
+  }
+
+  .day_summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

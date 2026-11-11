@@ -1,0 +1,54 @@
+/* Styles for the centred card with the logo for the sign-in pages. */
+
+.auth_page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--space-4);
+  background: var(--color-page);
+}
+
+.auth_card {
+  width: 100%;
+  max-width: 28rem;
+  padding: var(--space-8) 2.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: 1.5rem;
+  box-shadow: 0 16px 40px rgba(43, 29, 20, 0.08);
+  text-align: center;
+}
+
+/* small rounded logo, cropped in because the file has empty space around the wordmark */
+.auth_logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 auto var(--space-4);
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+
+.auth_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
+}
+
+.auth_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.auth_subtitle {
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-6);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 600px) {
+  .auth_card {
+    padding: var(--space-6) var(--space-5);
+  }
+}

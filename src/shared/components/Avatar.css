@@ -1,0 +1,23 @@
+/* Styles for a round avatar with the first letter of a name. */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.avatar_light {
+  background: var(--color-accent-light);
+  color: var(--color-text-secondary);
+}
+
+.avatar_success {
+  background: var(--color-success);
+  color: #fff;
+}

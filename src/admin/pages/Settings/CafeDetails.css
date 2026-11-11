@@ -1,0 +1,55 @@
+/* Styles for the Café details settings (name, address, TRN, time zone, business day end). */
+
+.logo_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.logo_preview {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--color-row-selected);
+}
+
+/* the logo file has a lot of empty space around it, so crop in a little */
+.logo_preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo_hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.branch_section {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-divider);
+}
+
+.branch_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.branch_title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.branch_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: calc(-1 * var(--space-3));
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}

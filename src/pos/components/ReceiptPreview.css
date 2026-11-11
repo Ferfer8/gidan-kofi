@@ -1,0 +1,94 @@
+/* Styles for the receipt as it is shown and printed. */
+
+/* a till receipt: white paper, a typewriter font, dotted lines between the parts */
+.sale_receipt {
+  width: 100%;
+  max-width: 19rem;
+  max-height: 100%;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  box-shadow: 0 6px 24px rgba(43, 29, 20, 0.12);
+  font-family: 'Courier New', Courier, ui-monospace, monospace;
+  font-size: 0.6875rem;
+  color: var(--color-text);
+  overflow-y: auto;
+}
+
+.sale_receipt_cafe {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sale_receipt_small {
+  text-align: center;
+  font-size: 0.625rem;
+  color: var(--color-text-secondary);
+}
+
+.receipt_block {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px dotted var(--color-text-muted);
+}
+
+.receipt_heading {
+  text-align: center;
+}
+
+.receipt_number {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.receipt_type {
+  font-weight: 700;
+}
+
+.receipt_lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px dotted var(--color-text-muted);
+}
+
+.receipt_line_name {
+  font-weight: 700;
+}
+
+.receipt_line_options {
+  color: var(--color-text-secondary);
+}
+
+.sale_receipt_row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.receipt_sums {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sale_receipt_total {
+  margin-block: 2px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.receipt_foot {
+  color: var(--color-text-secondary);
+}
+
+.receipt_footer_text {
+  margin-top: var(--space-1);
+  text-align: center;
+}

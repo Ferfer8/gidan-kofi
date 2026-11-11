@@ -1,0 +1,52 @@
+/* Styles for the Café settings page: loads and saves all sections. */
+
+.settings_page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.settings_layout {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.settings_save {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.unsaved_note {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-warning-text);
+}
+
+@media (max-width: 900px) {
+  .settings_layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phone: Save stays at the bottom of the screen so it is always reachable */
+@media (max-width: 600px) {
+  .settings_page {
+    padding-bottom: 4.5rem;
+  }
+
+  .settings_save {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-divider);
+  }
+}

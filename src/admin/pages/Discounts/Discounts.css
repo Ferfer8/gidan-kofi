@@ -1,0 +1,163 @@
+/* Styles for the Discounts page: voucher codes and the manager discount rules. */
+
+.discounts_page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.discount_card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.discount_notice {
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-warning-bg);
+  font-size: 0.875rem;
+  color: var(--color-warning);
+}
+
+.discount_scroll {
+  overflow-x: auto;
+}
+
+.discount_table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+}
+
+.discount_table th {
+  padding: 1rem var(--space-5);
+  box-shadow: inset 0 -1px 0 var(--color-divider);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.discount_table td {
+  padding: 0.875rem var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text-secondary);
+}
+
+.discount_table tr:last-child td {
+  border-bottom: none;
+}
+
+.discount_row {
+  cursor: pointer;
+}
+
+.discount_row:hover {
+  background: var(--color-page);
+}
+
+.discount_row:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.discount_value {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.discount_table td.ended {
+  color: var(--color-error);
+}
+
+.discount_action {
+  text-align: right;
+}
+
+.code_tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  background: var(--color-accent-light);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Ended codes look greyed out */
+.code_tag.expired {
+  background: var(--color-divider);
+  color: var(--color-text-muted);
+}
+
+.code_description {
+  margin-top: var(--space-1);
+  font-size: 0.75rem;
+}
+
+/* Manager rules */
+.rules_card .card_header {
+  margin-bottom: var(--space-1);
+}
+
+.rules_subtitle {
+  margin-bottom: var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.rules_list {
+  border-top: 1px solid var(--color-divider);
+}
+
+.rule_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.rule_row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.rule_title {
+  font-weight: 600;
+}
+
+.rule_hint {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.rule_controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.rule_input {
+  width: 6.5rem;
+}
+
+.rule_input input {
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .rule_row {
+    flex-wrap: wrap;
+  }
+}
+
+.discount_buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}

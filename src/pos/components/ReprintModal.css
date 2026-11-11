@@ -1,0 +1,38 @@
+/* Styles for the Reprint pop-up that shows the receipt and prints it. */
+
+.pos_reprint_modal {
+  max-width: 26rem;
+}
+
+.pos_reprint_modal .modal_body {
+  display: flex;
+  justify-content: center;
+  background: var(--color-page);
+}
+
+/* Printing: only the receipt is on the paper. Everything else on the screen is hidden. */
+@media print {
+  @page {
+    margin: 6mm;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .pos_reprint_modal .sale_receipt,
+  .pos_reprint_modal .sale_receipt * {
+    visibility: visible;
+  }
+
+  .pos_reprint_modal .sale_receipt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80mm;
+    max-width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+  }
+}

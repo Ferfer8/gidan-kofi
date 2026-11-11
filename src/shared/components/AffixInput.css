@@ -1,0 +1,40 @@
+/* Styles for an input with optional text before and after the value (like "AED" or "%"). */
+
+.affix_input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  background: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+}
+
+.affix_input:focus-within {
+  border-color: var(--color-accent);
+}
+
+.affix_input.invalid {
+  border-color: var(--color-error);
+}
+
+.affix_input.disabled {
+  opacity: 0.5;
+}
+
+.affix_input input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.625rem 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.affix_text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,104 @@
+/* Styles for a label with its input, select or textarea. */
+
+.form_field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+
+.form_label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.form_input {
+  width: 100%;
+  padding: 0.625rem var(--space-3);
+  background: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.form_input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form_input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form_input.invalid,
+.form_input.invalid:focus {
+  border-color: var(--color-error);
+}
+
+textarea.form_input {
+  resize: vertical;
+}
+
+/* Two fields side by side, stacked on phones */
+.form_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .form_row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Shared by the modals and forms */
+.modal_form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form_section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.field_hint,
+.field_error {
+  font-size: 0.75rem;
+}
+
+.field_hint {
+  color: var(--color-text-muted);
+}
+
+.field_error {
+  color: var(--color-error);
+}
+
+.toggle_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+/* Link-style button */
+.link_button {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+/* Red text button, e.g. Delete */
+.delete_text {
+  color: var(--color-error);
+}

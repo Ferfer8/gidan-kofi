@@ -1,0 +1,22 @@
+/* Styles for a white rounded container with an optional title row. */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
+  min-width: 0;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.card_title {
+  font-size: 1rem;
+  font-weight: 600;
+}

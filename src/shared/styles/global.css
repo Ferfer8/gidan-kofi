@@ -1,0 +1,83 @@
+/* Styles for the whole app: reset, fonts and page basics. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  background: var(--color-page);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Scrollbars: dark brown thumb on a light beige track. They only appear when content overflows. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scroll-thumb) var(--color-scroll-track);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scroll-track);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scroll-thumb);
+  border: 2px solid var(--color-scroll-track);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

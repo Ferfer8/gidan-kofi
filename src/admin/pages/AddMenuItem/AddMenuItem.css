@@ -1,0 +1,99 @@
+/* Styles for the Add menu item page (the simple form route). */
+
+.add_item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.add_item_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+}
+
+/* Photo box on the left, name / category / description on the right */
+.add_item_top {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.add_item_fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.photo_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 8rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-page);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.photo_box:hover {
+  border-color: var(--color-accent);
+}
+
+.price_row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 11rem));
+  gap: var(--space-3);
+}
+
+.price_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0.75rem var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  color: var(--color-text-secondary);
+}
+
+.price_box:focus-within {
+  border-color: var(--color-accent);
+}
+
+.price_box input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-weight: 700;
+  text-align: right;
+  color: var(--color-text);
+}
+
+@media (max-width: 900px) {
+  .add_item_top {
+    grid-template-columns: 1fr;
+  }
+
+  .photo_box {
+    min-height: 6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .price_row {
+    grid-template-columns: 1fr;
+  }
+
+  .add_item_card {
+    padding: var(--space-4);
+  }
+}

@@ -1,0 +1,319 @@
+/* Styles for the Sales & orders page: totals, the orders list, refunds and the Excel export. */
+
+.sales {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sales_stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.sales_main {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+/* Orders table: the card has no padding so rows run edge to edge */
+.orders_card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  /* long lists scroll inside the card instead of making the page taller */
+  max-height: max(32rem, calc(100vh - 20.5rem));
+}
+
+.orders_card .card_header {
+  margin: 0;
+  padding: var(--space-5) var(--space-6);
+}
+
+.orders_filter {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.orders_scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.orders_table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+}
+
+/* Header row stays visible while the rows scroll (box-shadow because borders don't stick) */
+.orders_table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.875rem var(--space-3);
+  background: var(--color-surface);
+  box-shadow: inset 0 1px 0 var(--color-divider), inset 0 -1px 0 var(--color-divider);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.orders_table td {
+  padding: 1.05rem var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.orders_table th:first-child,
+.orders_table td:first-child {
+  padding-left: var(--space-6);
+}
+
+.order_row {
+  background: var(--row_bg);
+  cursor: pointer;
+}
+
+/* Hover: an accent bar on the left edge plus a faint tint. The bar (not the tint) is what
+   tells it apart from the beige counter 2 rows. */
+.order_row:hover:not(.selected) {
+  background-image: linear-gradient(rgba(145, 79, 43, 0.05), rgba(145, 79, 43, 0.05));
+}
+
+.order_row:hover:not(.selected) td:first-child {
+  box-shadow: inset 4px 0 0 var(--color-accent);
+}
+
+.order_row:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.order_row.selected {
+  background: var(--color-row-selected);
+}
+
+.order_row.selected td,
+.order_row.selected .order_number {
+  color: #fff;
+}
+
+.order_row.selected .order_count {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.order_counter {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.order_number {
+  margin-right: var(--space-2);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.order_count {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.order_total {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Order details panel.
+   The panel is positioned inside a wrapper that has no content of its own, so its height
+   always matches the orders card next to it and never makes the row taller. */
+.order_panel {
+  position: relative;
+  min-height: 28rem;
+}
+
+.order_details {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.order_details .card_header {
+  margin: 0;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.order_details .card_title {
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+/* Only this middle part scrolls. Header, total and buttons stay in view. */
+.order_scroll {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 0;
+  padding: var(--space-5) var(--space-6);
+  overflow-y: auto;
+}
+
+.order_pinned {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+}
+
+.order_line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.order_info,
+.order_sums {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.order_info {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.order_items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.order_item_line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-weight: 600;
+}
+
+.order_item_options {
+  color: var(--color-text-secondary);
+}
+
+.order_sums {
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--color-border);
+}
+
+.order_discount {
+  color: var(--color-accent);
+}
+
+.order_total_line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.order_total_amount {
+  font-size: 1.625rem;
+}
+
+.order_details_footer {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-divider);
+}
+
+.order_button {
+  flex: 1;
+}
+
+@media (max-width: 1200px) {
+  .sales_main {
+    grid-template-columns: 1fr;
+  }
+
+  /* Panel sits under the table: let it size itself, and cap the scrolling part */
+  .order_panel {
+    min-height: 0;
+  }
+
+  .order_details {
+    position: static;
+  }
+
+  .order_scroll {
+    max-height: 22rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .sales_stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sales_stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Large screens: the page is exactly one screen tall (see AdminLayout), so the orders
+   card and receipt fill whatever space is left under the stat cards. */
+@media (min-width: 1201px) {
+  .sales {
+    flex: 1;
+    gap: var(--space-4);
+    min-height: 0;
+  }
+
+  .sales_main {
+    flex: 1;
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .orders_card {
+    max-height: none;
+  }
+
+  .order_panel {
+    min-height: 0;
+  }
+}
+
+.custom_range {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.custom_range .form_input {
+  width: auto;
+  padding: 0.4rem var(--space-3);
+}
+
+.sales_message {
+  padding: var(--space-6) 0;
+  color: var(--color-text-secondary);
+}

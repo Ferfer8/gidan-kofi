@@ -1,0 +1,36 @@
+/* Styles for an on/off switch. */
+
+.toggle {
+  position: relative;
+  width: 2.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  transition: background 0.15s;
+}
+
+.toggle_on {
+  background: var(--color-success);
+}
+
+.toggle_thumb {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s;
+}
+
+.toggle_on .toggle_thumb {
+  transform: translateX(1rem);
+}
+
+.toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

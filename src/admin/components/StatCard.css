@@ -1,0 +1,41 @@
+/* Styles for one number tile (label, big value and a small note). */
+
+.stat_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  min-height: 6rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.stat_card_label {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.stat_card_value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat_card_note {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.stat_card_note_success {
+  color: var(--color-success);
+}
+
+.stat_card_note_warning {
+  color: var(--color-warning-text);
+}
+
+.stat_card_note_muted {
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}

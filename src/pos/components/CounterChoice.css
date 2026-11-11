@@ -1,0 +1,62 @@
+/* Styles for "Which device is this?": a button for each counter and for the Kitchen. */
+
+.counter_choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.counter_choice_title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.counter_choice_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* large buttons, one for each counter */
+.counter_choice_button {
+  width: 100%;
+  padding: 1.4rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.counter_choice_button:hover {
+  filter: brightness(1.08);
+}
+
+.counter_choice_loading,
+.counter_choice_problem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.counter_choice_note {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.counter_choice_back {
+  border: none;
+  background: none;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}

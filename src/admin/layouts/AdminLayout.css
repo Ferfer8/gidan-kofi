@@ -1,0 +1,61 @@
+/* Styles for the frame around every admin page: sidebar, top bar and the page area. */
+
+.admin_layout_main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+}
+
+.admin_layout_content {
+  --page_x: var(--space-8); /* the side padding, so a scrolling list can reach the screen edge */
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-6) var(--page_x) var(--space-8);
+}
+
+@media (max-width: 900px) {
+  .admin_layout_main {
+    margin-left: 0;
+  }
+
+  .admin_layout_content {
+    --page_x: var(--space-4);
+    padding: var(--space-5) var(--page_x) var(--space-6);
+  }
+}
+
+/* Fit mode (Sales page, large screens): exactly one screen tall, with slimmer top and
+   bottom padding. Screens shorter than 46rem still scroll so nothing gets squashed. */
+@media (min-width: 1201px) {
+  .admin_layout.fit .admin_layout_main {
+    height: max(100vh, 46rem);
+  }
+
+  .admin_layout.fit .admin_layout_content {
+    min-height: 0;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+}
+
+/* Locked mode (Menu & Stock, every screen size): exactly the screen height (100dvh, which stays
+   right when a phone's address bar shows or hides), so the page itself never scrolls. */
+.admin_layout.locked {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.admin_layout.locked .admin_layout_main {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.admin_layout.locked .admin_layout_content {
+  min-height: 0;
+  padding-bottom: 0; /* the scrolling list adds its own space at the bottom */
+}

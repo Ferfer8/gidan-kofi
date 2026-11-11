@@ -1,0 +1,391 @@
+/* Styles for the item pop-up where size, milk, shots and extras are chosen before adding to the order. */
+
+.customise_backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: rgba(43, 29, 20, 0.55);
+}
+
+.customise_modal {
+  display: flex;
+  width: min(62rem, 100%);
+  height: min(36rem, 100%);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(43, 29, 20, 0.4);
+}
+
+/* ---- the left side: the choices ---- */
+.customise_main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.customise_head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.customise_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-control);
+  background: #d9c9b6;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  overflow: hidden;
+}
+
+.customise_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.customise_intro {
+  flex: 1;
+  min-width: 0;
+}
+
+.customise_name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.customise_description {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.customise_reset {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 0.875rem;
+  border: 1.5px solid var(--color-pos-sidebar);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.customise_body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 0;
+  padding: var(--space-4) var(--space-6);
+  overflow-y: auto;
+}
+
+.customise_body > .modifier_group {
+  flex: none;
+}
+
+.modifier_groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+}
+
+.modifier_group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1 1 100%;
+}
+
+/* a short group (the shots counter, Coffee: Regular / Decaf) shares its row with the next one */
+.modifier_group.compact {
+  flex: 0 1 auto;
+}
+
+.modifier_group_title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.modifier_pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.modifier_pill {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: #fbf6ee;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.modifier_pill.selected {
+  background: var(--color-card-hot);
+  border-color: var(--color-accent);
+}
+
+.modifier_pill:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* the size pills are bigger, with the price under the name */
+.modifier_pills.sizes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+}
+
+.modifier_pill.size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  border-radius: var(--radius-control);
+}
+
+.modifier_pill_note {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* an option's own count under its name: orange-brown at 5 or fewer */
+.modifier_pill_left {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.modifier_pill_left.low {
+  color: var(--color-low-stock);
+}
+
+/* nothing left of this option: greyed out */
+.modifier_pill.size.sold_out:disabled {
+  background: #e6e0d8;
+  border-color: transparent;
+}
+
+.counter_control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.counter_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.counter_button:disabled {
+  opacity: 0.4;
+}
+
+.counter_value {
+  min-width: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.customise_foot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+}
+
+.customise_foot > div {
+  flex: 1;
+}
+
+.customise_foot_title {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.customise_foot_price {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.customise_message {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-low-stock);
+}
+
+.customise_add {
+  padding: 0.85rem 1.75rem;
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font-weight: 700;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+/* ---- the right side: the summary ---- */
+.customise_summary {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 19rem;
+  padding: var(--space-5);
+  background: var(--color-accent-light);
+}
+
+.customise_summary_title {
+  margin-bottom: var(--space-3);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.summary_cards {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.summary_card {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font-size: 0.75rem;
+}
+
+.summary_card_head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.summary_card_qty {
+  color: var(--color-accent);
+}
+
+.summary_card_line {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-secondary);
+}
+
+.summary_card_foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}
+
+.summary_card_icons {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.summary_card_icons button {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-accent);
+}
+
+.summary_foot {
+  padding-top: var(--space-3);
+  border-top: 1px dotted var(--color-border);
+}
+
+.summary_row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.summary_row.total {
+  margin: var(--space-1) 0 var(--space-3);
+  color: var(--color-text);
+}
+
+.summary_row.total strong {
+  font-size: 1.125rem;
+}
+
+.customise_finish {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.customise_finish:disabled {
+  background: #b9876c;
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Small screens: the summary goes under the choices */
+@media (max-width: 760px) {
+  .customise_backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .customise_modal {
+    flex-direction: column;
+    width: 100%;
+    height: 94vh;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+
+  .customise_main {
+    flex: 1 1 60%;
+    min-height: 0;
+  }
+
+  .customise_summary {
+    flex: 0 0 auto;
+    width: auto;
+    max-height: 17rem;
+  }
+}

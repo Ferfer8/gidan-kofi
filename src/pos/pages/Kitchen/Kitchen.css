@@ -1,0 +1,164 @@
+/* Styles for the Kitchen screen: today's made-daily counts, Log batch and End of day. */
+
+.kitchen_status {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+/* the header stays put; only the cards scroll */
+.kitchen_screen {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--space-6) var(--space-8) 0;
+}
+
+.kitchen_head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.kitchen_title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.kitchen_date {
+  margin-top: var(--space-1);
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+}
+
+.kitchen_end_button {
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+}
+
+.kitchen_scroll {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-height: 0;
+  padding-bottom: var(--space-8);
+  overflow-y: auto;
+}
+
+.kitchen_empty {
+  padding: var(--space-8) 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.kitchen_group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.kitchen_group_title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.kitchen_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--space-4);
+}
+
+/* a large card in the POS colours */
+.kitchen_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--color-card-grab);
+}
+
+.kitchen_card.pastry {
+  background: var(--color-card-pastry);
+}
+
+.kitchen_card.grab {
+  background: var(--color-card-grab);
+}
+
+.kitchen_card_name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.kitchen_numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.kitchen_number {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kitchen_number dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.kitchen_number dd {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.kitchen_carried {
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Left: orange-brown at 5 or fewer, red at 0 */
+.kitchen_number.left.low dd {
+  color: var(--color-low-stock);
+}
+
+.kitchen_number.left.none dd {
+  font-size: 1.25rem;
+  padding-top: 0.4rem;
+  color: var(--color-error);
+}
+
+.kitchen_log_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: var(--color-pos-sidebar);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.kitchen_log_button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 900px) {
+  .kitchen_screen {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+}

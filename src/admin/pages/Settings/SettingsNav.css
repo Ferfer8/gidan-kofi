@@ -1,0 +1,61 @@
+/* Styles for the list of settings sections (a list, pills or a select depending on the screen). */
+
+.settings_nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.settings_nav_item {
+  padding: 0.625rem var(--space-4);
+  border-radius: var(--radius-control);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.settings_nav_item:hover {
+  background: var(--color-accent-light);
+}
+
+.settings_nav_item.active {
+  background: var(--color-row-selected);
+  color: #fff;
+}
+
+.settings_nav_select {
+  display: none;
+}
+
+/* Tablet: pills in a row that scrolls sideways */
+@media (max-width: 900px) {
+  .settings_nav {
+    flex-direction: row;
+    gap: var(--space-2);
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+  }
+
+  .settings_nav_item {
+    flex-shrink: 0;
+    padding: 0.5rem 1.125rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    font-size: 0.875rem;
+  }
+
+  .settings_nav_item.active {
+    border-color: var(--color-row-selected);
+  }
+}
+
+/* Phone: a dropdown instead */
+@media (max-width: 600px) {
+  .settings_nav {
+    display: none;
+  }
+
+  .settings_nav_select {
+    display: block;
+  }
+}

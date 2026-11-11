@@ -1,0 +1,101 @@
+/* Styles for one item tile in the checkout grid. */
+
+.item_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 4.75rem;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--color-card-grab);
+  text-align: left;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: transform 0.08s;
+}
+
+.item_card:active {
+  transform: scale(0.98);
+}
+
+.item_card.hot {
+  background: var(--color-card-hot);
+}
+
+.item_card.cold {
+  background: var(--color-card-cold);
+}
+
+.item_card.pastry {
+  background: var(--color-card-pastry);
+}
+
+.item_card.grab {
+  background: var(--color-card-grab);
+}
+
+/* in the current order: a dark border and a badge with how many */
+.item_card.in_order {
+  border-color: var(--color-pos-sidebar);
+}
+
+.item_card_badge {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--color-pos-sidebar);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.item_card_name {
+  padding-right: 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.item_card_bottom {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.item_card_options,
+.item_card_left {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.item_card_left.low {
+  font-weight: 600;
+  color: var(--color-low-stock);
+}
+
+.item_card_price {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+/* nothing left: greyed out and not tappable */
+.item_card.sold_out {
+  background: #e6e0d8;
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.item_card.sold_out .item_card_left,
+.item_card.sold_out .item_card_price {
+  color: var(--color-text-muted);
+}
