@@ -3,7 +3,7 @@ A café point of sale and admin panel, working together in real time.
 
 Gidan Kofi ("coffee house" in Hausa) is a point of sale (POS) system for a small café, with a separate admin panel for the manager. Baristas take orders and payments at the counter, the kitchen logs what it bakes and the manager runs the menu, stock, staff, discounts and settings, all from one shared database, with changes showing up live on every screen.
 
-▶ [Try the POS and admin panel](LINK)
+▶ [Try the POS and admin panel](https://gidankofi.netlify.app)
 
 ## About the Project
 I designed the interface for Gidan Kofi in Figma, using an Espresso & Cream colour palette, then built it in React with a Supabase backend.
