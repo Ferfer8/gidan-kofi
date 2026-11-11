@@ -1,13 +1,12 @@
-// CounterChoice: "Which device is this?": a button for each counter and for the Kitchen, used by the start page
-// (Landing).
+// CounterChoice: "Which counter is this?": a button for each counter, used by the start page (Landing).
 
 import { useEffect, useState } from 'react';
 import Button from '../../shared/components/Button.jsx';
-import { fetchCounters, KITCHEN_DEVICE } from '../lib/counters.js';
+import { fetchCounters } from '../lib/counters.js';
 import './CounterChoice.css';
 
-// "Which device is this?": a large button for each counter, and one for the Kitchen. This tablet is set up once
-// and remembers it.
+// "Which counter is this?": a large button for each counter (the kitchen has its own card on the start page).
+// This tablet is set up once and remembers it.
 //   onChosen(device)     onBack()
 function CounterChoice({ onChosen, onBack }) {
   const [counters, setCounters] = useState(null);
@@ -28,7 +27,7 @@ function CounterChoice({ onChosen, onBack }) {
 
   return (
     <div className="counter_choice">
-      <h2 className="counter_choice_title">Which device is this?</h2>
+      <h2 className="counter_choice_title">Which counter is this?</h2>
 
       {problem && (
         <div className="counter_choice_problem" role="alert">
@@ -48,9 +47,6 @@ function CounterChoice({ onChosen, onBack }) {
               {counter.name}
             </button>
           ))}
-          <button type="button" className="counter_choice_button" onClick={() => onChosen(KITCHEN_DEVICE)}>
-            Kitchen
-          </button>
         </div>
       )}
 

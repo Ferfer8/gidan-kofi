@@ -1,4 +1,4 @@
-/* Styles for the start page where you choose the POS or the admin panel. */
+/* Styles for the start page where you choose the admin panel, the counter (POS) or the kitchen. */
 
 .landing_page {
   display: flex;
@@ -9,7 +9,7 @@
   background: var(--color-page);
 }
 
-.landing_card {
+.landing_panel {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,18 +48,74 @@
   color: var(--color-text-secondary);
 }
 
-.landing_buttons {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+/* the three choices: side by side, stacked on small screens */
+.landing_panel_wide {
+  max-width: 58rem;
+}
+
+.landing_cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
   width: 100%;
   margin-top: var(--space-5);
 }
 
-/* two large buttons */
-.landing_button {
+.landing_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-page);
+  font: inherit;
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.landing_card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.landing_card_icon {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.landing_card_title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.landing_card_text {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.landing_notice {
   width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1.0625rem;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-demo-bg);
+  color: var(--color-demo-text);
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 48rem) {
+  .landing_cards {
+    grid-template-columns: 1fr;
+  }
 }

@@ -9,6 +9,7 @@ import { useOrder } from '../lib/OrderContext.jsx';
 import { signInWithPin, startShift } from '../lib/shifts.js';
 import { setSessionToken } from '../lib/rpc.js';
 import { demoPins } from '../lib/demoPins.js';
+import { isKitchen } from '../lib/counters.js';
 import './PinScreen.css';
 
 // Who is working? "Counter 1 · Enter your PIN". The PIN pad checks the PIN after the 4th digit; a right
@@ -85,7 +86,7 @@ function PinScreen() {
         <Modal isOpen title="Demo PINs" className="demo_pins_modal" onClose={() => setShowDemo(false)}>
           <p className="demo_pins_intro">Try the POS with any of these. Each person has their own PIN.</p>
           <ul className="demo_pins">
-            {demoPins.map((person) => (
+            {demoPins.filter((person) => !isKitchen(counter) || person.kitchen).map((person) => (
               <li key={person.name} className="demo_pins_row">
                 <span>
                   <strong>{person.name}</strong> <span className="demo_pins_role">{person.role}</span>
