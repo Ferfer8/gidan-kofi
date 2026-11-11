@@ -24,12 +24,13 @@ jobs:
           [ -z "$SUPABASE_URL" ] && echo "SUPABASE_URL secret is empty or missing"
           [ -z "$SUPABASE_PUBLISHABLE_KEY" ] && echo "SUPABASE_PUBLISHABLE_KEY secret is empty or missing"
 
-          # ${SUPABASE_URL%/} drops a trailing slash if you pasted one
-          status=$(curl --silent --show-error --output response.txt --write-out "%{http_code}" \
-            --request POST "${SUPABASE_URL%/}/rest/v1/rpc/ping" \
-            --header "apikey: $SUPABASE_PUBLISHABLE_KEY" \
-            --header "Content-Type: application/json" \
-            --data '{}')
+          # A space or new line pasted with a secret would break the request: take them out.
+          # ${url%/} drops a trailing slash if you pasted one.
+          url=$(printf '%s' "$SUPABASE_URL" | tr -d '[:space:]')
+          key=$(printf '%s' "$SUPABASE_PUBLISHABLE_KEY" | tr -d '[:space:]')
+
+          # ping() takes nothing, so a plain GET is enough (no request body to get wrong)
+          status=$(curl --silent --show-error --output response.txt --write-out "%{http_code}" --header "apikey: $key" "${url%/}/rest/v1/rpc/ping")
 
           echo "HTTP status: $status"
           cat response.txt
