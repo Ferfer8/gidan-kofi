@@ -76,7 +76,7 @@ export const defaultSettings = {
     largeOrderNumber: true,
     prefix: 'GK',
     emailReceipts: true,
-    footer: 'Barka da zuwa · Thank you!',
+    footer: 'Na gode · Thank you!',
   },
   payments: {
     cash: true,
