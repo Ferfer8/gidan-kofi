@@ -1,7 +1,7 @@
 // Login: the manager sign-in page, with the "Try the demo" button, shown at /admin/login.
 
 import { useState } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import AuthCard from '../../components/AuthCard.jsx';
 import FormField from '../../../shared/components/FormField.jsx';
 import PasswordInput from '../../../shared/components/PasswordInput.jsx';
@@ -119,6 +119,11 @@ function Login() {
         {pending === 'demo' ? 'Signing in…' : 'Try the demo'}
       </Button>
       <p className="demo_note">Explore with sample data</p>
+
+      {/* back to the start page: Counter, Kitchen or Admin panel */}
+      <Link to="/" className="switch_station_link">
+        Switch station
+      </Link>
 
       {forgotOpen && <ForgotPasswordModal initialEmail={email} onClose={() => setForgotOpen(false)} />}
     </AuthCard>

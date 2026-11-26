@@ -98,3 +98,11 @@
   font-size: 0.8125rem;
   color: var(--color-text-muted);
 }
+
+.switch_station_link {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  color: var(--color-text-secondary);
+}

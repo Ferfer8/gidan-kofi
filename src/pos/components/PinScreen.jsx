@@ -1,6 +1,7 @@
 // PinScreen: the staff sign-in screen shown before anyone is signed in, used by PosLayout.
 
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from '../../shared/components/Modal.jsx';
 import logoFull from '../../shared/assets/logos/logo-full.png';
 import PinPad from './PinPad.jsx';
@@ -17,6 +18,7 @@ import './PinScreen.css';
 function PinScreen() {
   const { counter, notice, signIn, changeCounter } = useSession();
   const { order } = useOrder();
+  const navigate = useNavigate();
   const [arrived, setArrived] = useState(null); // { staff, shift, token, expiresAt } while "Hi Yusuf" shows
   const [problem, setProblem] = useState('');
   const [padKey, setPadKey] = useState(0); // a new pad (empty dots) after a problem
@@ -71,10 +73,17 @@ function PinScreen() {
               <button type="button" className="demo_pins_link" onClick={() => setShowDemo(true)}>
                 Demo PINs
               </button>
-              {/* nobody is signed in here, so the device can be changed (not while an order is in progress) */}
-              {!orderInProgress && (
+              {/* nobody is signed in here, so the device can be changed (not while an order is in progress,
+                  since leaving the POS screens loses it). "Change counter" goes back to Counter 1 / Counter 2;
+                  "Switch station" goes back to the start page (Counter, Kitchen or Admin panel). */}
+              {!orderInProgress && !isKitchen(counter) && (
                 <button type="button" className="demo_pins_link" onClick={changeCounter}>
-                  Change device
+                  Change counter
+                </button>
+              )}
+              {!orderInProgress && (
+                <button type="button" className="demo_pins_link" onClick={() => navigate('/')}>
+                  Switch station
                 </button>
               )}
             </div>

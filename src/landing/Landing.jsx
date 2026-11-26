@@ -1,7 +1,7 @@
 // Landing: the start page where you choose the admin panel, the counter (POS) or the kitchen, shown at the / route.
 
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Icon from '../shared/components/Icon.jsx';
 import CounterChoice from '../pos/components/CounterChoice.jsx';
 import { isKitchen, loadCounter, saveCounter, KITCHEN_DEVICE } from '../pos/lib/counters.js';
@@ -11,21 +11,24 @@ import './Landing.css';
 
 const SIGNED_IN_MESSAGE = 'Someone is signed in on this device. Switch staff on the POS first, then change the device.';
 
-// The start page: three choices. A tablet is set up once as a counter or as the kitchen and remembers it, so
-// its own card goes straight to the PIN screen. The other card changes the device, but only when nobody is
-// signed in (the order in progress lives on the POS screens and is gone once you leave them).
+// The start page: three stations. "Counter (POS)" always asks which counter (Counter 1 or Counter 2) before
+// the PIN screen, unless someone is still signed in on this tablet's counter: then it goes back to them. The
+// device can only change when nobody is signed in (the order in progress lives on the POS screens and is gone
+// once you leave them). "Change counter" on the PIN screen comes back here with the counter question open.
 function Landing() {
   const navigate = useNavigate();
-  const [choosing, setChoosing] = useState(false); // "Which counter is this?"
+  const location = useLocation();
+  const [choosing, setChoosing] = useState(Boolean(location.state?.chooseCounter)); // "Which counter is this?"
   const [notice, setNotice] = useState('');
 
   const saved = loadCounter(); // the saved device: a counter, the kitchen or nothing
 
   function openCounter() {
     setNotice('');
-    if (saved && !isKitchen(saved)) {
+    const signedIn = loadSession();
+    if (signedIn && saved && !isKitchen(saved)) {
       navigate('/pos');
-    } else if (loadSession()) {
+    } else if (signedIn) {
       setNotice(SIGNED_IN_MESSAGE);
     } else {
       setChoosing(true);
@@ -57,7 +60,10 @@ function Landing() {
               saveCounter(counter);
               navigate('/pos');
             }}
-            onBack={() => setChoosing(false)}
+            onBack={() => {
+              setChoosing(false);
+              navigate('/', { replace: true }); // drop chooseCounter, so a reload shows the stations
+            }}
           />
         ) : (
           <>
